@@ -43,14 +43,13 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<bool> likedPosts = List.generate(9, (index) => false); // Track likes
-
+  List<bool> isBook = List.generate(9, (index) => false);
   void toggleLike(int index) {
     setState(() {
       likedPosts[index] = !likedPosts[index]; // Toggle state
     });
   }
 
-  bool isBook = false;
 
   @override
   Widget build(BuildContext context) {
@@ -183,11 +182,11 @@ class _HomePageState extends State<HomePage> {
                         IconButton(
                           icon: Icon(
                             Icons.bookmark_add_outlined,
-                            color: isBook ? Colors.blue : Colors.black,
+                            color: isBook[index] ? Colors.blue : Colors.black,
                           ),
                           onPressed: () {
                             setState(() {
-                              isBook = !isBook;
+                              isBook[index] = !isBook[index];
                             });
                           },
                         ),
